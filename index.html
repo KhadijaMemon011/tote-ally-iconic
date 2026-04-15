@@ -718,9 +718,7 @@
     
   </div>
 
-  <button class="upload-btn" onclick="triggerUpload('img-1', 'img-wrapper-1')">
-    + Upload Photo
-  </button>
+ 
 
   <input type="file" id="img-1" accept="image/*"
     style="display:none"
@@ -756,9 +754,7 @@
       style="width:100%; height:100%; object-fit:cover; display:block;"
     >
 
-    <button class="upload-btn" onclick="triggerUpload('img-2', 'img-wrapper-2')">
-      + Upload Photo
-    </button>
+    
 
     <input type="file" id="img-2" accept="image/*" style="display:none"
       onchange="handleUpload(this, 'img-wrapper-2')">
@@ -795,7 +791,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-  <button class="upload-btn" onclick="triggerUpload('img-3', 'img-wrapper-3')">+ Upload Photo</button>
+
 
   <input type="file" id="img-3" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-3')">
@@ -840,7 +836,6 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-  <button class="upload-btn" onclick="triggerUpload('img-4', 'img-wrapper-4')">+ Upload Photo</button>
 
   <input type="file" id="img-4" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-4')">
@@ -872,8 +867,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-  <button class="upload-btn" onclick="triggerUpload('img-5', 'img-wrapper-5')">+ Upload Photo</button>
-
+ 
   <input type="file" id="img-5" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-5')">
 
@@ -904,7 +898,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-  <button class="upload-btn" onclick="triggerUpload('img-6', 'img-wrapper-6')">+ Upload Photo</button>
+
 
   <input type="file" id="img-6" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-6')">
@@ -1014,14 +1008,12 @@ async function uploadToCloudinary(file) {
 
 const file = input.files[0];
 const wrapper = document.getElementById(wrapperId);
-
 const placeholder = wrapper.querySelector('.card-placeholder');
 if (placeholder) placeholder.style.display = 'none';
+
 const uploadBtn = wrapper.querySelector('.upload-btn');
 if (uploadBtn) uploadBtn.style.display = 'none';
-    const uploadBtn = wrapper.querySelector('.upload-btn');
-if (uploadBtn) uploadBtn.remove();
-let img = wrapper.querySelector('img');
+
 if (!img) {
   img = document.createElement('img');
   wrapper.insertBefore(img, wrapper.querySelector('.upload-btn'));
