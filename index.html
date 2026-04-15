@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tote-ally Iconic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-deep: #c2185b;
+    --pink-main: #e91e8c;
+    --pink-mid: #f06292;
+    --pink-light: #f8bbd0;
+    --pink-pale: #fce4ec;
+    --pink-blush: #fff0f5;
+    --white: #ffffff;
+    --dark: #1a0a10;
+    --text-dark: #2d0a1a;
+    --text-mid: #6d3a4f;
+    --text-light: #b87094;
+    --shadow-pink: rgba(233, 30, 140, 0.18);
+    --gradient-hero: linear-gradient(135deg, #fce4ec 0%, #fbb6ce 30%, #f472b6 60%, #e91e8c 100%);
+    --gradient-card: linear-gradient(160deg, #fff0f5 0%, #fce4ec 100%);
+    --gradient-accent: linear-gradient(90deg, #e91e8c, #f06292, #e91e8c);
+  }
+
+
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--pink-blush);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ---- CUSTOM CURSOR ---- */
+  .cursor {
+    width: 18px; height: 18px;
+    border: 2px solid var(--pink-main);
+    border-radius: 50%;
+    position: fixed; pointer-events: none;
+    z-index: 9999; transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, background 0.15s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor.hover { background: var(--pink-main); transform: translate(-50%,-50%) scale(1.6); }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(255,240,245,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(233,30,140,0.1);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 32px var(--shadow-pink); }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 900; font-style: italic;
+    color: var(--pink-deep);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.85rem; font-weight: 500;
+    color: var(--text-mid); letter-spacing: 0.5px; text-transform: uppercase;
+    position: relative; transition: color 0.2s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--pink-main);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--pink-main); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---- PAGES ---- */
+  .page { min-height: 100vh; position: relative; }
+
+  /* ===== PAGE 1 — HERO ===== */
+  #home {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    background: var(--gradient-hero);
+    padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+
+  #home::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,182,210,0.4) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.4;
+    animation: float 8s ease-in-out infinite;
+  }
+  .blob-1 { width: 400px; height: 400px; background: #f9a8d4; top: -100px; left: -100px; animation-delay: 0s; }
+  .blob-2 { width: 300px; height: 300px; background: #fbcfe8; bottom: -80px; right: -80px; animation-delay: 3s; }
+  .blob-3 { width: 200px; height: 200px; background: #fda4af; top: 50%; left: 50%; animation-delay: 1.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(20px,-20px) scale(1.05); }
+    66% { transform: translate(-15px,15px) scale(0.95); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(233,30,140,0.3);
+    color: var(--pink-deep);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 8px 20px; border-radius: 50px; margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+    animation: fadeDown 0.8s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 900; font-style: italic;
+    line-height: 0.95;
+    color: var(--white);
+    text-shadow: 0 4px 32px rgba(194,24,91,0.3);
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.2s; opacity: 0;
+    position: relative; z-index: 1;
+  }
+
+  .hero-title [contenteditable] { outline: none; }
+  .hero-title [contenteditable]:hover {
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px; cursor: text;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-style: italic; font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    margin-top: 16px; margin-bottom: 40px;
+    letter-spacing: 1px;
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.4s; opacity: 0;
+  }
+
+  .hero-tagline [contenteditable]:hover {
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px; cursor: text;
+  }
+
+  .edit-hint {
+    font-size: 0.7rem; color: rgba(255,255,255,0.6);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 40px;
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.5s; opacity: 0;
+  }
+
+  .cta-group {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.6s; opacity: 0;
+  }
+
+  .btn-primary {
+    background: var(--white);
+    color: var(--pink-deep);
+    border: none; padding: 16px 36px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 8px 32px rgba(194,24,91,0.2);
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(194,24,91,0.35);
+    background: var(--pink-pale);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.7);
+    padding: 14px 36px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--white);
+    transform: translateY(-3px);
+  }
+
+  .scroll-indicator {
+    position: absolute; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.6); font-size: 0.7rem; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .scroll-indicator svg { width: 20px; height: 20px; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== PAGE 2 — ABOUT ===== */
+  #about {
+    padding: 100px 48px;
+    background: var(--white);
+    display: flex; align-items: center; gap: 80px;
+    flex-wrap: wrap; min-height: 100vh;
+  }
+
+  .about-visual {
+    flex: 1; min-width: 280px;
+    position: relative;
+  }
+
+  .about-big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 900; font-style: italic;
+    color: var(--pink-pale);
+    line-height: 1; user-select: none;
+    position: relative; z-index: 0;
+  }
+
+  .about-icon-float {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    animation: float 5s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .about-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--pink-pale);
+    border: 1px solid var(--pink-light);
+    border-radius: 50px; padding: 8px 20px;
+    font-size: 0.75rem; font-weight: 600; color: var(--pink-deep);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .about-pill span { width: 6px; height: 6px; border-radius: 50%; background: var(--pink-main); display: inline-block; }
+
+  .about-content { flex: 1.5; min-width: 280px; }
+
+  .about-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--text-dark); margin-bottom: 24px;
+  }
+  .about-heading em { color: var(--pink-main); font-style: italic; }
+
+  .about-text {
+    font-size: 1rem; line-height: 1.8;
+    color: var(--text-mid); margin-bottom: 20px;
+  }
+  .about-text [contenteditable]:hover {
+    background: var(--pink-pale); border-radius: 6px; cursor: text; outline: none;
+  }
+
+  .about-stats {
+    display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: var(--pink-main);
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  .about-credit {
+    margin-top: 48px; padding: 20px 28px;
+    background: var(--gradient-card);
+    border-left: 3px solid var(--pink-main);
+    border-radius: 0 12px 12px 0;
+    font-size: 0.85rem; color: var(--text-mid);
+    font-style: italic;
+  }
+  .about-credit strong { color: var(--pink-deep); font-style: normal; }
+
+  /* ===== SECTION HEADER ===== */
+  .section-header {
+    text-align: center; padding: 80px 24px 60px;
+  }
+  .section-tag {
+    display: inline-block;
+    background: var(--pink-pale); color: var(--pink-deep);
+    border: 1px solid var(--pink-light);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 50px; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900; color: var(--text-dark); line-height: 1.1;
+  }
+  .section-title em { color: var(--pink-main); font-style: italic; }
+  .section-sub { margin-top: 12px; font-size: 0.95rem; color: var(--text-light); }
+
+  /* ===== PAGE 3 & 4 — CATEGORIES ===== */
+  .categories-page {
+    background: var(--pink-blush); padding-bottom: 80px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px; padding: 0 48px 80px;
+  }
+
+  .category-card {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px var(--shadow-pink);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+  }
+  .category-card:hover {
+    transform: translateY(-12px) rotate(-0.5deg);
+    box-shadow: 0 24px 64px rgba(233,30,140,0.2);
+  }
+
+  .card-name-bar {
+    background: var(--gradient-accent);
+    background-size: 200% auto;
+    padding: 20px 28px;
+    position: relative; overflow: hidden;
+    animation: gradientShift 4s linear infinite;
+  }
+  @keyframes gradientShift { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+  .card-category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 900; font-style: italic;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .card-category-name [contenteditable]:hover { background: rgba(255,255,255,0.15); border-radius: 4px; cursor: text; outline: none; }
+
+  .card-img-wrapper {
+    width: 100%; aspect-ratio: 4/3;
+    background: var(--pink-pale);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .card-img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .category-card:hover .card-img-wrapper img { transform: scale(1.08); }
+
+  .card-placeholder {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; color: var(--pink-mid); height: 100%; width: 100%;
+    position: absolute; inset: 0;
+  }
+  .card-placeholder-icon { font-size: 3.5rem; opacity: 0.5; }
+  .card-placeholder-text {
+    font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase;
+    text-align: center; padding: 0 20px;
+  }
+
+  .upload-btn {
+    position: absolute; bottom: 12px; right: 12px;
+    background: var(--pink-main); color: white;
+    border: none; border-radius: 50px; padding: 8px 16px;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;
+    cursor: pointer; opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2;
+  }
+  .card-img-wrapper:hover .upload-btn { opacity: 1; }
+
+  .card-body { padding: 24px 28px 32px; }
+
+  .card-desc {
+    font-size: 0.95rem; line-height: 1.7; color: var(--text-mid);
+    font-style: italic;
+  }
+  .card-desc [contenteditable]:hover { background: var(--pink-pale); border-radius: 4px; cursor: text; outline: none; }
+
+  .card-tag {
+    display: inline-block; margin-top: 16px;
+    background: var(--pink-pale); color: var(--pink-deep);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 50px;
+    border: 1px solid var(--pink-light);
+  }
+
+  /* ===== PAGE 5 — VISIT US / FOOTER ===== */
+  #contact {
+    background: var(--dark);
+    position: relative; overflow: hidden;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(233,30,140,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(194,24,91,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .contact-eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--pink-mid); margin-bottom: 16px;
+  }
+
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900; font-style: italic;
+    line-height: 1;
+    background: var(--gradient-accent);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+    margin-bottom: 60px; letter-spacing: 0.5px;
+  }
+
+  .contact-grid {
+    display: flex; gap: 60px; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+    width: 100%; max-width: 900px;
+  }
+
+  .ig-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(233,30,140,0.2);
+    border-radius: 24px; padding: 40px;
+    min-width: 260px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .ig-card:hover { transform: translateY(-8px); border-color: rgba(233,30,140,0.5); }
+
+  .ig-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    border-radius: 18px; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+  }
+  .ig-handle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-style: italic; font-weight: 700;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .ig-handle [contenteditable]:hover { background: rgba(255,255,255,0.1); border-radius: 4px; cursor: text; outline: none; }
+  .ig-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+
+  .ig-btn {
+    display: inline-block; margin-top: 20px;
+    background: var(--gradient-accent); background-size: 200%;
+    animation: gradientShift 3s linear infinite;
+    color: white; text-decoration: none;
+    padding: 12px 28px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .ig-btn:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(233,30,140,0.4); }
+
+  .qr-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(233,30,140,0.2);
+    border-radius: 24px; padding: 40px;
+    min-width: 220px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .qr-card:hover { transform: translateY(-8px); border-color: rgba(233,30,140,0.5); }
+
+  .qr-box {
+    width: 160px; height: 160px; margin: 0 auto 20px;
+    background: white; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 12px;
+    position: relative; overflow: hidden;
+  }
+
+  /* SVG QR-like pattern */
+  .qr-svg { width: 100%; height: 100%; }
+
+  .qr-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+
+  .footer-bottom {
+    margin-top: 80px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 40px; width: 100%; max-width: 900px;
+  }
+  .footer-credit {
+    font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.8;
+  }
+  .footer-credit em { color: var(--pink-mid); font-style: italic; }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-style: italic; font-weight: 700;
+    color: var(--pink-mid); margin-bottom: 12px;
+  }
+
+  /* ===== DIVIDERS ===== */
+  .wave-divider { width: 100%; line-height: 0; }
+  .wave-divider svg { display: block; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-up {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    #about { padding: 80px 24px; gap: 40px; }
+    .categories-grid { padding: 0 20px 60px; }
+    #contact { padding: 80px 20px; }
+    .contact-grid { gap: 32px; }
+  }
+
+  /* ===== EDIT MODE INDICATOR ===== */
+  .editable-indicator {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--pink-main); color: white;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 20px; border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(233,30,140,0.4);
+    z-index: 999;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .editable-dot { width: 6px; height: 6px; border-radius: 50%; background: white; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Tote-ally Iconic</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#collection1">Collection I</a></li>
+    <li><a href="#collection2">Collection II</a></li>
+    <li><a href="#contact">Visit Us</a></li>
+  </ul>
+</nav>
+
+<!-- ===== PAGE 1 — HERO ===== -->
+<section class="page" id="home">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-badge">✦ New Collection Dropping ✦</div>
+
+  <h1 class="hero-title">
+    <span contenteditable="true" spellcheck="false">Tote-ally</span><br>
+    <span contenteditable="true" spellcheck="false">Iconic</span>
+  </h1>
+
+  <p class="hero-tagline">
+    <span contenteditable="true" spellcheck="false">"Made To Be Seen!"</span>
+  </p>
+
+  <p class="edit-hint">✏ Click any text to edit</p>
+
+  <div class="cta-group">
+    <a href="#collection1" class="btn-primary">Shop the Vibe →</a>
+    <a href="#about" class="btn-outline">Our Story</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== PAGE 2 — ABOUT ===== -->
+<section class="page" id="about">
+  <div class="about-visual fade-in-up">
+    <div class="about-big-text">✦</div>
+    <div class="about-icon-float">👜</div>
+  </div>
+
+  <div class="about-content fade-in-up">
+    <div class="about-pill"><span></span> Est. 2024 · Made with Attitude</div>
+
+    <h2 class="about-heading">
+      We don't make bags.<br>
+      We make <em>statements.</em>
+    </h2>
+
+    <p class="about-text">
+      <span contenteditable="true" spellcheck="false">Tote-ally Iconic is not your average tote brand. We design for the girl who knows her worth, turns heads without trying, and carries her whole personality — not just her stuff.</span>
+    </p>
+    <p class="about-text">
+      <span contenteditable="true" spellcheck="false">From bold villain era prints to softcore chaos, every tote is a mood, a manifesto, and a whole conversation starter. Because why blend in when you were born to slay?</span>
+    </p>
+    <p class="about-text">
+      <span contenteditable="true" spellcheck="false">We believe fashion should be fearless, personal, and a little bit unhinged — in the best way possible. Welcome to the iconic side.</span>
+    </p>
+
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Collections</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Iconic</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Main Character Energy</div>
+      </div>
+    </div>
+
+    <div class="about-credit">
+      <strong>An exclusive creation by Khadija Memon and Abhirami Aluvila</strong> — two visionaries who refused to carry boring bags and decided to fix that. You're welcome. 💕
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAGE 3 — COLLECTION I ===== -->
+<div id="collection1" class="categories-page">
+  <div class="section-header fade-in-up">
+    <div class="section-tag">Collection I</div>
+    <h2 class="section-title">The <em>Main Character</em> Drops</h2>
+    <p class="section-sub">Three aesthetics. One common thread: absolutely unforgettable.</p>
+  </div>
+
+  <div class="categories-grid">
+
+    <!-- Category 1: Villain Era -->
+    <div class="category-card fade-in-up">
+      <div class="card-name-bar">
+        <div class="card-category-name">
+          <span contenteditable="true" spellcheck="false">Villain Era</span>
+        </div>
+      </div>
+    <div class="card-img-wrapper" id="img-wrapper-1">
+
+  <!-- IMAGE (always first, clean structure) -->
+  <img src="https://res.cloudinary.com/dqzbnbvqo/image/upload/v1776248087/Screenshot_2026-04-15_150837_criwdh.png">
+
+  <!-- PLACEHOLDER (only for empty state, can stay behind) -->
+  <div class="card-placeholder">
+    
+  </div>
+
+  <button class="upload-btn" onclick="triggerUpload('img-1', 'img-wrapper-1')">
+    + Upload Photo
+  </button>
+
+  <input type="file" id="img-1" accept="image/*"
+    style="display:none"
+    onchange="handleUpload(this, 'img-wrapper-1')">
+
+</div>
+      <div class="card-body">
+        <p class="card-desc">
+          <span contenteditable="true" spellcheck="false">Strong designs with fearless energy.</span>
+        </p>
+        <span class="card-tag">Bold · Fearless · Savage</span>
+      </div>
+    </div>
+
+    <!-- Category 2: Emotionally Expensive -->
+<div class="category-card fade-in-up">
+
+  <div class="card-name-bar">
+    <div class="card-category-name">
+      <span contenteditable="true" spellcheck="false">Emotionally Expensive</span>
+    </div>
+  </div>
+
+  <!-- ✅ IMAGE SECTION (THIS WAS MISSING) -->
+  <div class="card-img-wrapper" id="img-wrapper-2">
+
+    <div class="card-placeholder">
+      
+    </div>
+
+    <img 
+      src="https://res.cloudinary.com/dqzbnbvqo/image/upload/v1776248087/Screenshot_2026-04-15_151027_m8cmqv.png"
+      style="width:100%; height:100%; object-fit:cover; display:block;"
+    >
+
+    <button class="upload-btn" onclick="triggerUpload('img-2', 'img-wrapper-2')">
+      + Upload Photo
+    </button>
+
+    <input type="file" id="img-2" accept="image/*" style="display:none"
+      onchange="handleUpload(this, 'img-wrapper-2')">
+
+  </div>
+
+  <div class="card-body">
+    <p class="card-desc">
+      <span contenteditable="true" spellcheck="false">
+        Clean looks with powerful lines.
+      </span>
+    </p>
+
+    <span class="card-tag">Refined · Powerful · Expensive</span>
+  </div>
+
+</div>
+       
+    <!-- Category 3: IFYKYK Files -->
+    <div class="category-card fade-in-up">
+      <div class="card-name-bar">
+        <div class="card-category-name">
+          <span contenteditable="true" spellcheck="false">IFYKYK Files</span>
+        </div>
+      </div>
+      <div class="card-img-wrapper" id="img-wrapper-3">
+
+  <div class="card-placeholder">
+   
+  </div>
+
+  <img 
+    src="https://res.cloudinary.com/dqzbnbvqo/image/upload/v1776248069/Screenshot_2026-04-15_151234_bonggz.png"
+    style="width:100%; height:100%; object-fit:cover; display:block;"
+  >
+
+  <button class="upload-btn" onclick="triggerUpload('img-3', 'img-wrapper-3')">+ Upload Photo</button>
+
+  <input type="file" id="img-3" accept="image/*" style="display:none"
+    onchange="handleUpload(this, 'img-wrapper-3')">
+
+</div>
+      <div class="card-body">
+        <p class="card-desc">
+          <span contenteditable="true" spellcheck="false">Lowkey designs, if you get it you get it.</span>
+        </p>
+        <span class="card-tag">Subtle · Niche · For the Girls</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PAGE 4 — COLLECTION II ===== -->
+<div id="collection2" class="categories-page" style="background: var(--white);">
+  <div class="section-header fade-in-up">
+    <div class="section-tag">Collection II</div>
+    <h2 class="section-title">More <em>Chaos.</em> More <em>Heart.</em></h2>
+    <p class="section-sub">Custom, curated, and created just for you.</p>
+  </div>
+
+  <div class="categories-grid">
+
+    <!-- Category 4: Soft Chaos Theory -->
+    <div class="category-card fade-in-up">
+      <div class="card-name-bar">
+        <div class="card-category-name">
+          <span contenteditable="true" spellcheck="false">Soft Chaos Theory</span>
+        </div>
+      </div>
+      <div class="card-img-wrapper" id="img-wrapper-4">
+
+  <div class="card-placeholder">
+    
+  </div>
+
+  <img 
+    src="https://res.cloudinary.com/dqzbnbvqo/image/upload/v1776248070/Screenshot_2026-04-15_151421_sj7mmc.png"
+    style="width:100%; height:100%; object-fit:cover; display:block;"
+  >
+
+  <button class="upload-btn" onclick="triggerUpload('img-4', 'img-wrapper-4')">+ Upload Photo</button>
+
+  <input type="file" id="img-4" accept="image/*" style="display:none"
+    onchange="handleUpload(this, 'img-wrapper-4')">
+
+</div>
+      <div class="card-body">
+        <p class="card-desc">
+          <span contenteditable="true" spellcheck="false">Soft visuals mixed with real feeling.</span>
+        </p>
+        <span class="card-tag">Dreamy · Emotional · Aesthetic</span>
+      </div>
+    </div>
+
+    <!-- Category 5: Custom Chaos -->
+    <div class="category-card fade-in-up">
+      <div class="card-name-bar">
+        <div class="card-category-name">
+          <span contenteditable="true" spellcheck="false">Custom Chaos</span>
+        </div>
+      </div>
+     <div class="card-img-wrapper" id="img-wrapper-5">
+
+  <div class="card-placeholder">
+   
+  </div>
+
+  <img 
+    src="https://res.cloudinary.com/dqzbnbvqo/image/upload/q_auto/f_auto/v1776248069/Screenshot_2026-04-15_151131_jwhrtl.png"
+    style="width:100%; height:100%; object-fit:cover; display:block;"
+  >
+
+  <button class="upload-btn" onclick="triggerUpload('img-5', 'img-wrapper-5')">+ Upload Photo</button>
+
+  <input type="file" id="img-5" accept="image/*" style="display:none"
+    onchange="handleUpload(this, 'img-wrapper-5')">
+
+</div>
+      <div class="card-body">
+        <p class="card-desc">
+          <span contenteditable="true" spellcheck="false">Fully personalized totes made to match your story and personality.</span>
+        </p>
+        <span class="card-tag">Custom · Personal · Yours</span>
+      </div>
+    </div>
+
+    <!-- Category 6: Hampers / Gift Sets -->
+    <div class="category-card fade-in-up">
+      <div class="card-name-bar">
+        <div class="card-category-name">
+          <span contenteditable="true" spellcheck="false">Hampers / Gift Sets</span>
+        </div>
+      </div>
+      <div class="card-img-wrapper" id="img-wrapper-6">
+
+  <div class="card-placeholder">
+    
+  </div>
+
+  <img 
+    src="https://res.cloudinary.com/dqzbnbvqo/image/upload/v1776248069/Screenshot_2026-04-15_152008_nw1vla.png"
+    style="width:100%; height:100%; object-fit:cover; display:block;"
+  >
+
+  <button class="upload-btn" onclick="triggerUpload('img-6', 'img-wrapper-6')">+ Upload Photo</button>
+
+  <input type="file" id="img-6" accept="image/*" style="display:none"
+    onchange="handleUpload(this, 'img-wrapper-6')">
+
+</div>
+      <div class="card-body">
+        <p class="card-desc">
+          <span contenteditable="true" spellcheck="false">Not just a gift, a whole vibe.</span>
+        </p>
+        <span class="card-tag">Gifts · Curated · Iconic</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PAGE 5 — CONTACT / VISIT US ===== -->
+<section class="page" id="contact">
+  <p class="contact-eyebrow">✦ Come find us ✦</p>
+
+  <h2 class="contact-title">Visit Us<br>On Insta</h2>
+  <p class="contact-sub">Drop a DM. Leave a comment. Slide in. We don't bite. 🩷</p>
+
+  <div class="contact-grid">
+
+    <div class="ig-card fade-in-up">
+      <div class="ig-icon">📸</div>
+      <div class="ig-handle">
+        @<span contenteditable="true" spellcheck="false">toteally.iconic</span>
+      </div>
+      <div class="ig-sub">Follow us for drops, behind-the-scenes & pure iconic content</div>
+      <a href="#" class="ig-btn">Follow on Instagram →</a>
+    </div>
+
+    <div class="qr-card fade-in-up">
+      <div class="qr-box">
+         <img src="qr.png" style="width:100%; height:100%; object-fit:contain;">
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-brand">Tote-ally Iconic ✦</div>
+    <div class="footer-credit">
+      <em>An exclusive creation by Khadija Memon & Abhirami Aluvila</em><br>
+      Made with pink energy, bold ideas, and zero apologies. 🩷<br><br>
+      © 2026 Tote-ally Iconic · All rights reserved · <em>Made To Be Seen!</em>
+    </div>
+  </div>
+</section>
+
+<!-- EDIT INDICATOR -->
+<div class="editable-indicator">
+  <div class="editable-dot"></div>
+  Edit Mode On — Click text to edit
+</div>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  const CLOUD_NAME = "dqzbnbvqo";
+const UPLOAD_PRESET = "unsigned_upload";
+async function uploadToCloudinary(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", UPLOAD_PRESET);
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+
+  const data = await res.json();
+  return data.secure_url;
+}
+  document.querySelectorAll('a, button, [contenteditable]').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+  // Image upload
+  function triggerUpload(inputId, wrapperId) {
+    document.getElementById(inputId).click();
+  }
+
+  async function handleUpload(input, wrapperId) {
+    if (!input.files || !input.files[0]) return;
+
+const file = input.files[0];
+const wrapper = document.getElementById(wrapperId);
+
+const placeholder = wrapper.querySelector('.card-placeholder');
+if (placeholder) placeholder.style.display = 'none';
+
+let img = wrapper.querySelector('img');
+if (!img) {
+  img = document.createElement('img');
+  wrapper.insertBefore(img, wrapper.querySelector('.upload-btn'));
+}
+
+const formData = new FormData();
+formData.append("file", file);
+formData.append("upload_preset", "unsigned_upload");
+
+const res = await fetch(
+  "https://api.cloudinary.com/v1_1/dqzbnbvqo/image/upload",
+  {
+    method: "POST",
+    body: formData,
+  }
+);
+
+const data = await res.json();
+
+img.src = data.secure_url;
+    
+  }
+</script>
+</body>
