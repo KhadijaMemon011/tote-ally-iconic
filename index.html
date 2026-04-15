@@ -159,8 +159,8 @@
     position: relative; z-index: 1;
   }
 
-  .hero-title  { outline: none; }
-  .hero-title :hover {
+  .hero-title [contenteditable] { outline: none; }
+  .hero-title [contenteditable]:hover {
     background: rgba(255,255,255,0.15);
     border-radius: 8px; cursor: text;
   }
@@ -176,7 +176,7 @@
     animation-delay: 0.4s; opacity: 0;
   }
 
-  .hero-tagline :hover {
+  .hero-tagline [contenteditable]:hover {
     background: rgba(255,255,255,0.15);
     border-radius: 6px; cursor: text;
   }
@@ -300,7 +300,7 @@
     font-size: 1rem; line-height: 1.8;
     color: var(--text-mid); margin-bottom: 20px;
   }
-  .about-text :hover {
+  .about-text [contenteditable]:hover {
     background: var(--pink-pale); border-radius: 6px; cursor: text; outline: none;
   }
 
@@ -382,7 +382,7 @@
     color: var(--white);
     line-height: 1.2;
   }
-  .card-category-name :hover { background: rgba(255,255,255,0.15); border-radius: 4px; cursor: text; outline: none; }
+  .card-category-name [contenteditable]:hover { background: rgba(255,255,255,0.15); border-radius: 4px; cursor: text; outline: none; }
 
   .card-img-wrapper {
     width: 100%; aspect-ratio: 4/3;
@@ -424,7 +424,7 @@
     font-size: 0.95rem; line-height: 1.7; color: var(--text-mid);
     font-style: italic;
   }
-  .card-desc:hover { background: var(--pink-pale); border-radius: 4px; cursor: text; outline: none; }
+  .card-desc [contenteditable]:hover { background: var(--pink-pale); border-radius: 4px; cursor: text; outline: none; }
 
   .card-tag {
     display: inline-block; margin-top: 16px;
@@ -502,7 +502,7 @@
     font-size: 1.4rem; font-style: italic; font-weight: 700;
     color: var(--white); margin-bottom: 8px;
   }
-  .ig-handle :hover { background: rgba(255,255,255,0.1); border-radius: 4px; cursor: text; outline: none; }
+  .ig-handle [contenteditable]:hover { background: rgba(255,255,255,0.1); border-radius: 4px; cursor: text; outline: none; }
   .ig-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
 
   .ig-btn {
@@ -623,15 +623,15 @@
   <div class="hero-badge">✦ New Collection Dropping ✦</div>
 
   <h1 class="hero-title">
-    <span>Tote-ally</span><br>
-    <span>Iconic</span>
+    <span contenteditable="true" spellcheck="false">Tote-ally</span><br>
+    <span contenteditable="true" spellcheck="false">Iconic</span>
   </h1>
 
   <p class="hero-tagline">
-    <span>"Made To Be Seen!"</span>
+    <span contenteditable="true" spellcheck="false">"Made To Be Seen!"</span>
   </p>
 
-
+  <p class="edit-hint">✏ Click any text to edit</p>
 
   <div class="cta-group">
     <a href="#collection1" class="btn-primary">Shop the Vibe →</a>
@@ -648,15 +648,13 @@
 
 <!-- ===== PAGE 2 — ABOUT ===== -->
 <section class="page" id="about">
-
-  <!-- LEFT SIDE -->
   <div class="about-visual fade-in-up">
     <div class="about-big-text">✦</div>
     <div class="about-icon-float">👜</div>
   </div>
 
-  <!-- RIGHT SIDE (FIXED STRUCTURE) -->
   <div class="about-content fade-in-up">
+    <div class="about-pill"><span></span> Est. 2024 · Made with Attitude</div>
 
     <h2 class="about-heading">
       We don't make bags.<br>
@@ -664,43 +662,36 @@
     </h2>
 
     <p class="about-text">
-      Tote-ally Iconic is not your average tote brand. We design for the girl who knows her worth.
+      <span contenteditable="true" spellcheck="false">Tote-ally Iconic is not your average tote brand. We design for the girl who knows her worth, turns heads without trying, and carries her whole personality — not just her stuff.</span>
     </p>
-
     <p class="about-text">
-      Every tote is a mood, a manifesto, and a conversation starter.
+      <span contenteditable="true" spellcheck="false">From bold villain era prints to softcore chaos, every tote is a mood, a manifesto, and a whole conversation starter. Because why blend in when you were born to slay?</span>
     </p>
-
     <p class="about-text">
-      Fashion should be fearless, personal, and iconic.
+      <span contenteditable="true" spellcheck="false">We believe fashion should be fearless, personal, and a little bit unhinged — in the best way possible. Welcome to the iconic side.</span>
     </p>
 
-    <!-- STATS -->
     <div class="about-stats">
       <div class="stat-item">
         <div class="stat-num">3+</div>
         <div class="stat-label">Collections</div>
       </div>
-
       <div class="stat-item">
         <div class="stat-num">100%</div>
         <div class="stat-label">Iconic</div>
       </div>
-
       <div class="stat-item">
         <div class="stat-num">∞</div>
-        <div class="stat-label">Energy</div>
+        <div class="stat-label">Main Character Energy</div>
       </div>
     </div>
 
-    <!-- CREDIT -->
     <div class="about-credit">
-      <strong>Created by Khadija Memon & Abhirami Aluvila</strong>
+      <strong>An exclusive creation by Khadija Memon and Abhirami Aluvila</strong> — two visionaries who refused to carry boring bags and decided to fix that. You're welcome. 💕
     </div>
-
   </div>
-
 </section>
+
 <!-- ===== PAGE 3 — COLLECTION I ===== -->
 <div id="collection1" class="categories-page">
   <div class="section-header fade-in-up">
@@ -715,7 +706,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span>Villain Era</span>
+          <span contenteditable="true" spellcheck="false">Villain Era</span>
         </div>
       </div>
     <div class="card-img-wrapper" id="img-wrapper-1">
@@ -728,7 +719,9 @@
     
   </div>
 
-
+  <button class="upload-btn" onclick="triggerUpload('img-1', 'img-wrapper-1')">
+    + Upload Photo
+  </button>
 
   <input type="file" id="img-1" accept="image/*"
     style="display:none"
@@ -737,7 +730,7 @@
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span>Strong designs with fearless energy.</span>
+          <span contenteditable="true" spellcheck="false">Strong designs with fearless energy.</span>
         </p>
         <span class="card-tag">Bold · Fearless · Savage</span>
       </div>
@@ -748,7 +741,7 @@
 
   <div class="card-name-bar">
     <div class="card-category-name">
-      <span>Emotionally Expensive</span>
+      <span contenteditable="true" spellcheck="false">Emotionally Expensive</span>
     </div>
   </div>
 
@@ -764,7 +757,9 @@
       style="width:100%; height:100%; object-fit:cover; display:block;"
     >
 
-    
+    <button class="upload-btn" onclick="triggerUpload('img-2', 'img-wrapper-2')">
+      + Upload Photo
+    </button>
 
     <input type="file" id="img-2" accept="image/*" style="display:none"
       onchange="handleUpload(this, 'img-wrapper-2')">
@@ -773,7 +768,7 @@
 
   <div class="card-body">
     <p class="card-desc">
-      <span>
+      <span contenteditable="true" spellcheck="false">
         Clean looks with powerful lines.
       </span>
     </p>
@@ -787,7 +782,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span>IFYKYK Files</span>
+          <span contenteditable="true" spellcheck="false">IFYKYK Files</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-3">
@@ -801,14 +796,15 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-  
+  <button class="upload-btn" onclick="triggerUpload('img-3', 'img-wrapper-3')">+ Upload Photo</button>
+
   <input type="file" id="img-3" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-3')">
 
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span>Lowkey designs, if you get it you get it.</span>
+          <span contenteditable="true" spellcheck="false">Lowkey designs, if you get it you get it.</span>
         </p>
         <span class="card-tag">Subtle · Niche · For the Girls</span>
       </div>
@@ -831,7 +827,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span>Soft Chaos Theory</span>
+          <span contenteditable="true" spellcheck="false">Soft Chaos Theory</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-4">
@@ -845,6 +841,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
+  <button class="upload-btn" onclick="triggerUpload('img-4', 'img-wrapper-4')">+ Upload Photo</button>
 
   <input type="file" id="img-4" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-4')">
@@ -852,7 +849,7 @@
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span>Soft visuals mixed with real feeling.</span>
+          <span contenteditable="true" spellcheck="false">Soft visuals mixed with real feeling.</span>
         </p>
         <span class="card-tag">Dreamy · Emotional · Aesthetic</span>
       </div>
@@ -862,7 +859,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span>Custom Chaos</span>
+          <span contenteditable="true" spellcheck="false">Custom Chaos</span>
         </div>
       </div>
      <div class="card-img-wrapper" id="img-wrapper-5">
@@ -876,6 +873,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
+  <button class="upload-btn" onclick="triggerUpload('img-5', 'img-wrapper-5')">+ Upload Photo</button>
 
   <input type="file" id="img-5" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-5')">
@@ -883,7 +881,7 @@
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span>Fully personalized totes made to match your story and personality.</span>
+          <span contenteditable="true" spellcheck="false">Fully personalized totes made to match your story and personality.</span>
         </p>
         <span class="card-tag">Custom · Personal · Yours</span>
       </div>
@@ -893,7 +891,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span>Hampers / Gift Sets</span>
+          <span contenteditable="true" spellcheck="false">Hampers / Gift Sets</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-6">
@@ -907,7 +905,7 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-
+  <button class="upload-btn" onclick="triggerUpload('img-6', 'img-wrapper-6')">+ Upload Photo</button>
 
   <input type="file" id="img-6" accept="image/*" style="display:none"
     onchange="handleUpload(this, 'img-wrapper-6')">
@@ -915,7 +913,7 @@
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span >Not just a gift, a whole vibe.</span>
+          <span contenteditable="true" spellcheck="false">Not just a gift, a whole vibe.</span>
         </p>
         <span class="card-tag">Gifts · Curated · Iconic</span>
       </div>
@@ -936,12 +934,10 @@
     <div class="ig-card fade-in-up">
       <div class="ig-icon">📸</div>
       <div class="ig-handle">
-        @<span>toteally.iconic</span>
+        @<span contenteditable="true" spellcheck="false">toteally.iconic</span>
       </div>
       <div class="ig-sub">Follow us for drops, behind-the-scenes & pure iconic content</div>
-     <a href="https://www.instagram.com/tote_ally_iconic?igsh=Zm9pOGpzOTJlNmFl" class="ig-btn" target="_blank">
-  Follow on Instagram →
-</a>
+      <a href="#" class="ig-btn">Follow on Instagram →</a>
     </div>
 
     <div class="qr-card fade-in-up">
@@ -955,12 +951,17 @@
     <div class="footer-brand">Tote-ally Iconic ✦</div>
     <div class="footer-credit">
       <em>An exclusive creation by Khadija Memon & Abhirami Aluvila</em><br>
-     
+      Made with pink energy, bold ideas, and zero apologies. 🩷<br><br>
       © 2026 Tote-ally Iconic · All rights reserved · <em>Made To Be Seen!</em>
     </div>
   </div>
 </section>
 
+<!-- EDIT INDICATOR -->
+<div class="editable-indicator">
+  <div class="editable-dot"></div>
+  Edit Mode On — Click text to edit
+</div>
 
 <script>
   // Custom cursor
@@ -987,7 +988,7 @@ async function uploadToCloudinary(file) {
   const data = await res.json();
   return data.secure_url;
 }
-  document.querySelectorAll('a, button, ').forEach(el => {
+  document.querySelectorAll('a, button, [contenteditable]').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
@@ -1021,8 +1022,6 @@ const wrapper = document.getElementById(wrapperId);
 
 const placeholder = wrapper.querySelector('.card-placeholder');
 if (placeholder) placeholder.style.display = 'none';
-    const uploadBtn = wrapper.querySelector('.upload-btn');
-if (uploadBtn) uploadBtn.style.display = 'none';
 
 let img = wrapper.querySelector('img');
 if (!img) {
