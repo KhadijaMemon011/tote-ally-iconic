@@ -1020,7 +1020,8 @@ const placeholder = wrapper.querySelector('.card-placeholder');
 if (placeholder) placeholder.style.display = 'none';
     const uploadBtn = wrapper.querySelector('.upload-btn');
 if (uploadBtn) uploadBtn.style.display = 'none';
-
+const uploadBtn = wrapper.querySelector('.upload-btn');
+if (uploadBtn) uploadBtn.remove();
 let img = wrapper.querySelector('img');
 if (!img) {
   img = document.createElement('img');
