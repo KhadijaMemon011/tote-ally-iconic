@@ -596,6 +596,11 @@
   }
   .editable-dot { width: 6px; height: 6px; border-radius: 50%; background: white; animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  /* LOCK EDITING */
+[contenteditable] {
+  user-select: none;
+  pointer-events: none;
+}
 </style>
 </head>
 <body>
@@ -623,15 +628,16 @@
   <div class="hero-badge">✦ New Collection Dropping ✦</div>
 
   <h1 class="hero-title">
-    <span contenteditable="true" spellcheck="false">Tote-ally</span><br>
-    <span contenteditable="true" spellcheck="false">Iconic</span>
+    <span>Tote-ally</span><br>
+    <span>Iconic</span>
   </h1>
 
   <p class="hero-tagline">
-    <span contenteditable="true" spellcheck="false">"Made To Be Seen!"</span>
+    <span>"Made To Be Seen!"</span>
   </p>
 
- 
+  
+
   <div class="cta-group">
     <a href="#collection1" class="btn-primary">Shop the Vibe →</a>
     <a href="#about" class="btn-outline">Our Story</a>
@@ -653,7 +659,7 @@
   </div>
 
   <div class="about-content fade-in-up">
-    <div class="about-pill"><span></span> Est. 2024 · Made with Attitude</div>
+    
 
     <h2 class="about-heading">
       We don't make bags.<br>
@@ -661,13 +667,13 @@
     </h2>
 
     <p class="about-text">
-      <span contenteditable="true" spellcheck="false">Tote-ally Iconic is not your average tote brand. We design for the girl who knows her worth, turns heads without trying, and carries her whole personality — not just her stuff.</span>
+      <span>Tote-ally Iconic is not your average tote brand. We design for the girl who knows her worth, turns heads without trying, and carries her whole personality — not just her stuff.</span>
     </p>
     <p class="about-text">
-      <span contenteditable="true" spellcheck="false">From bold villain era prints to softcore chaos, every tote is a mood, a manifesto, and a whole conversation starter. Because why blend in when you were born to slay?</span>
+      <span>From bold villain era prints to softcore chaos, every tote is a mood, a manifesto, and a whole conversation starter. Because why blend in when you were born to slay?</span>
     </p>
     <p class="about-text">
-      <span contenteditable="true" spellcheck="false">We believe fashion should be fearless, personal, and a little bit unhinged — in the best way possible. Welcome to the iconic side.</span>
+      <span>We believe fashion should be fearless, personal, and a little bit unhinged — in the best way possible. Welcome to the iconic side.</span>
     </p>
 
     <div class="about-stats">
@@ -705,7 +711,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span contenteditable="true" spellcheck="false">Villain Era</span>
+          <span>Villain Era</span>
         </div>
       </div>
     <div class="card-img-wrapper" id="img-wrapper-1">
@@ -720,14 +726,12 @@
 
  
 
-  <input type="file" id="img-1" accept="image/*"
-    style="display:none"
-    onchange="handleUpload(this, 'img-wrapper-1')">
+  
 
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span contenteditable="true" spellcheck="false">Strong designs with fearless energy.</span>
+          <span>Strong designs with fearless energy.</span>
         </p>
         <span class="card-tag">Bold · Fearless · Savage</span>
       </div>
@@ -738,7 +742,7 @@
 
   <div class="card-name-bar">
     <div class="card-category-name">
-      <span contenteditable="true" spellcheck="false">Emotionally Expensive</span>
+      <span>Emotionally Expensive</span>
     </div>
   </div>
 
@@ -755,15 +759,11 @@
     >
 
     
-
-    <input type="file" id="img-2" accept="image/*" style="display:none"
-      onchange="handleUpload(this, 'img-wrapper-2')">
-
   </div>
 
   <div class="card-body">
     <p class="card-desc">
-      <span contenteditable="true" spellcheck="false">
+      <span>
         Clean looks with powerful lines.
       </span>
     </p>
@@ -777,7 +777,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span contenteditable="true" spellcheck="false">IFYKYK Files</span>
+          <span>IFYKYK Files</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-3">
@@ -791,15 +791,11 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-
-
-  <input type="file" id="img-3" accept="image/*" style="display:none"
-    onchange="handleUpload(this, 'img-wrapper-3')">
-
+  
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span contenteditable="true" spellcheck="false">Lowkey designs, if you get it you get it.</span>
+          <span>Lowkey designs, if you get it you get it.</span>
         </p>
         <span class="card-tag">Subtle · Niche · For the Girls</span>
       </div>
@@ -822,7 +818,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span contenteditable="true" spellcheck="false">Soft Chaos Theory</span>
+          <span>Soft Chaos Theory</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-4">
@@ -836,14 +832,11 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-
-  <input type="file" id="img-4" accept="image/*" style="display:none"
-    onchange="handleUpload(this, 'img-wrapper-4')">
-
+  
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span contenteditable="true" spellcheck="false">Soft visuals mixed with real feeling.</span>
+          <span>Soft visuals mixed with real feeling.</span>
         </p>
         <span class="card-tag">Dreamy · Emotional · Aesthetic</span>
       </div>
@@ -853,7 +846,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span contenteditable="true" spellcheck="false">Custom Chaos</span>
+          <span>Custom Chaos</span>
         </div>
       </div>
      <div class="card-img-wrapper" id="img-wrapper-5">
@@ -868,13 +861,10 @@
   >
 
  
-  <input type="file" id="img-5" accept="image/*" style="display:none"
-    onchange="handleUpload(this, 'img-wrapper-5')">
-
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span contenteditable="true" spellcheck="false">Fully personalized totes made to match your story and personality.</span>
+          <span>Fully personalized totes made to match your story and personality.</span>
         </p>
         <span class="card-tag">Custom · Personal · Yours</span>
       </div>
@@ -884,7 +874,7 @@
     <div class="category-card fade-in-up">
       <div class="card-name-bar">
         <div class="card-category-name">
-          <span contenteditable="true" spellcheck="false">Hampers / Gift Sets</span>
+          <span>Hampers / Gift Sets</span>
         </div>
       </div>
       <div class="card-img-wrapper" id="img-wrapper-6">
@@ -898,15 +888,10 @@
     style="width:100%; height:100%; object-fit:cover; display:block;"
   >
 
-
-
-  <input type="file" id="img-6" accept="image/*" style="display:none"
-    onchange="handleUpload(this, 'img-wrapper-6')">
-
 </div>
       <div class="card-body">
         <p class="card-desc">
-          <span contenteditable="true" spellcheck="false">Not just a gift, a whole vibe.</span>
+          <span>Not just a gift, a whole vibe.</span>
         </p>
         <span class="card-tag">Gifts · Curated · Iconic</span>
       </div>
@@ -927,11 +912,10 @@
     <div class="ig-card fade-in-up">
       <div class="ig-icon">📸</div>
       <div class="ig-handle">
-        @<span contenteditable="true" spellcheck="false">toteally.iconic</span>
+        @<span>toteally.iconic</span>
       </div>
       <div class="ig-sub">Follow us for drops, behind-the-scenes & pure iconic content</div>
-      <a href="ttps://www.instagram.com/tote_ally_iconic?igsh=Zm9pOGpzOTJlNmFl
-" class="ig-btn">Follow on Instagram →</a>
+      <a href="https://www.instagram.com/tote_ally_iconic?igsh=Zm9pOGpzOTJlNmFl" class="ig-btn">Follow on Instagram →</a>
     </div>
 
     <div class="qr-card fade-in-up">
@@ -950,6 +934,7 @@
     </div>
   </div>
 </section>
+
 
 
 <script>
@@ -1008,12 +993,11 @@ async function uploadToCloudinary(file) {
 
 const file = input.files[0];
 const wrapper = document.getElementById(wrapperId);
+
 const placeholder = wrapper.querySelector('.card-placeholder');
 if (placeholder) placeholder.style.display = 'none';
 
-const uploadBtn = wrapper.querySelector('.upload-btn');
-if (uploadBtn) uploadBtn.style.display = 'none';
-
+let img = wrapper.querySelector('img');
 if (!img) {
   img = document.createElement('img');
   wrapper.insertBefore(img, wrapper.querySelector('.upload-btn'));
